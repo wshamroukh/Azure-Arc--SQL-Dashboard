@@ -265,7 +265,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "// Count of all resources\nresources\n| where (type == \"microsoft.sql/managedinstances/databases\" or \n  type == \"microsoft.azurearcdata/sqlserverinstances/databases\" or \n  type == \"microsoft.sql/servers/databases\") and \n  (name !in (\"master\",\"model\",\"msdb\") and \n  name !contains \"tempdb\")\n| count",
+                  "value": "resources\n| where type in~ (\"microsoft.sql/managedinstances/databases\",\"microsoft.azurearcdata/sqlserverinstances/databases\",\"microsoft.sql/servers/databases\")\n| where name !in~ (\"master\",\"model\",\"msdb\",\"tempdb\")\n| summarize [\"Total User DB Count\"] = count()",
                   "isOptional": true
                 },
                 {
