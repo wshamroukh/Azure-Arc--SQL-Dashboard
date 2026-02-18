@@ -698,7 +698,7 @@
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "Linix Servers by OS",
+                "title": "Linux Servers by OS",
                 "subtitle": "Linux servers by OS Version"
               }
             }
