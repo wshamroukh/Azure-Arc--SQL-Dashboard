@@ -65,7 +65,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"Engine\"\n| summarize Servers=count()",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"Engine\"\n| summarize [\"SQL DB Engine Servers\"]=count()",
                   "isOptional": true
                 }
               ],
@@ -117,7 +117,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSAS\"\n| summarize Servers=count()",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSAS\"\n| summarize [\"Analysis Servers\"]=count()",
                   "isOptional": true
                 }
               ],
@@ -169,7 +169,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSRS\"\n| summarize Servers=count()",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSRS\"\n| summarize [\"Reporting Servers\"]=count()",
                   "isOptional": true
                 }
               ],
@@ -221,7 +221,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSIS\"\n| summarize Servers=count()",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSIS\"\n| summarize [\"Integration Servers\"]=count()",
                   "isOptional": true
                 }
               ],
