@@ -390,10 +390,63 @@
               }
             }
           },
-           {
+          {
             "position": {
               "x": 0,
               "y": 11,
+              "colSpan": 20,
+              "rowSpan": 5
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSAS\"\n| extend version = tostring(properties[\"version\"])\n| summarize Count = count() by version\n| order by version asc",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SQL Analysis Versions",
+                "subtitle": "Count of SQL Analysis instances by version"
+              }
+            }
+          },
+           {
+            "position": {
+              "x": 0,
+              "y": 16,
               "colSpan": 20,
               "rowSpan": 5
             },
@@ -446,7 +499,7 @@
            {
             "position": {
               "x": 0,
-              "y": 16,
+              "y": 21,
               "colSpan": 20,
               "rowSpan": 5
             },
@@ -499,7 +552,7 @@
            {
             "position": {
               "x": 0,
-              "y": 21,
+              "y": 26,
               "colSpan": 6,
               "rowSpan": 6
             },
@@ -552,7 +605,7 @@
            {
             "position": {
               "x": 6,
-              "y": 21,
+              "y": 26,
               "colSpan": 6,
               "rowSpan": 6
             },
@@ -605,7 +658,7 @@
            {
             "position": {
               "x": 12,
-              "y": 21,
+              "y": 26,
               "colSpan": 8,
               "rowSpan": 6
             },
