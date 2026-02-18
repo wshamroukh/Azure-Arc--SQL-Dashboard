@@ -544,8 +544,8 @@
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "Instances per SQL Server Edition",
-                "subtitle": "Count of SQL Server instances per edition"
+                "title": "SQL Engine Server Edition",
+                "subtitle": "Count of SQL Engine Server instances per edition"
               }
             }
           },
