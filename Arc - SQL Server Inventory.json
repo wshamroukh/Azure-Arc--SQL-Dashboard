@@ -437,8 +437,8 @@
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "SQL DB Engine Versions",
-                "subtitle": "Count of SQL DB Engine instances by version"
+                "title": "SQL Engine Versions",
+                "subtitle": "Count of SQL Engine instances by version"
               }
             }
           },
@@ -571,7 +571,7 @@
                 },
                 {
                   "name": "partTitle",
-                  "value": "Query 1",
+                  "value": "Query 2",
                   "isOptional": true
                 },
                 {
@@ -589,15 +589,15 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSRS\"\n| extend version = tostring(properties[\"version\"])\n| summarize Count = count() by version\n| order by version asc",
+                  "value": "// If distinct count is small (e.g. < 1000)\n// run next query to get count of each value\nresources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSAS\"\n| summarize Count = count() by tostring(properties[\"edition\"])\n| order by Count desc",
                   "isOptional": true
                 }
               ],
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "SQL Reporting Versions",
-                "subtitle": "Count of SQL Reporting instances by version"
+                "title": "SQL Analysis Services Edition",
+                "subtitle": "Count of SQL Analysis Services instances per edition"
               }
             }
           },
@@ -624,7 +624,7 @@
                 },
                 {
                   "name": "partTitle",
-                  "value": "Query 2",
+                  "value": "Query 1",
                   "isOptional": true
                 },
                 {
@@ -642,15 +642,15 @@
                 },
                 {
                   "name": "query",
-                  "value": "// If distinct count is small (e.g. < 1000)\n// run next query to get count of each value\nresources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSAS\"\n| summarize Count = count() by tostring(properties[\"edition\"])\n| order by Count desc",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSRS\"\n| extend version = tostring(properties[\"version\"])\n| summarize Count = count() by version\n| order by version asc",
                   "isOptional": true
                 }
               ],
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "SQL Server Analysis Services Edition",
-                "subtitle": "Count of SQL Server Analysis Services instances per edition"
+                "title": "SQL Reporting Services Versions",
+                "subtitle": "Count of SQL Reporting Services instances by version"
               }
             }
           },
@@ -755,8 +755,8 @@
               "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
               "settings": {},
               "partHeader": {
-                "title": "Compatibility Level",
-                "subtitle": "Count of databases by compatabilty level"
+                "title": "SQL Server database Compatibility Level",
+                "subtitle": "Count of databases by compatibility level"
               }
             }
           },
