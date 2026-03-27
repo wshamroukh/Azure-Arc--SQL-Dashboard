@@ -389,10 +389,62 @@
               }
             }
           },
-           {
+          {
             "position": {
               "x": 0,
               "y": 6,
+              "colSpan": 20,
+              "rowSpan": 5
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources | where type == 'microsoft.azurearcdata/sqlserverinstances/databases' | project name, Instances = tostring(split(tostring(id), '/')[8]), SizeMB = round(toint(properties['sizeMB']),0), SpaceAvailableMB = round(toint(properties['spaceAvailableMB']),0), State = properties['state'],  CreationDate = properties['databaseCreationDate'], CollationName = properties['collationName'], RecoveryMode = properties['recoveryMode'], CompatibilityLevel = properties['compatibilityLevel'] | order by toint(SizeMB) desc",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryGridTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Databases Details",
+                "subtitle": "Details of SQL Server DBs"
+              }
+            }
+          },
+           {
+            "position": {
+              "x": 0,
+              "y": 11,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -445,7 +497,7 @@
           {
             "position": {
               "x": 10,
-              "y": 6,
+              "y": 11,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -498,7 +550,7 @@
           {
             "position": {
               "x": 0,
-              "y": 11,
+              "y": 16,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -551,7 +603,7 @@
           {
             "position": {
               "x": 10,
-              "y": 11,
+              "y": 16,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -604,7 +656,7 @@
           {
             "position": {
               "x": 0,
-              "y": 16,
+              "y": 21,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -657,7 +709,7 @@
           {
             "position": {
               "x": 10,
-              "y": 16,
+              "y": 21,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -710,7 +762,7 @@
            {
             "position": {
               "x": 0,
-              "y": 21,
+              "y": 26,
               "colSpan": 8,
               "rowSpan": 5
             },
@@ -763,7 +815,7 @@
           {
             "position": {
               "x": 8,
-              "y": 21,
+              "y": 26,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -816,7 +868,7 @@
            {
             "position": {
               "x": 14,
-              "y": 21,
+              "y": 26,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -870,7 +922,7 @@
            {
             "position": {
               "x": 0,
-              "y": 26,
+              "y": 31,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -923,7 +975,7 @@
            {
             "position": {
               "x": 6,
-              "y": 26,
+              "y": 31,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -976,7 +1028,7 @@
            {
             "position": {
               "x": 12,
-              "y": 26,
+              "y": 31,
               "colSpan": 8,
               "rowSpan": 5
             },
@@ -1029,7 +1081,7 @@
            {
             "position": {
               "x": 0,
-              "y": 31,
+              "y": 36,
               "colSpan": 20,
               "rowSpan": 1
             },
@@ -1050,7 +1102,7 @@
            {
             "position": {
               "x": 0,
-              "y": 32,
+              "y": 37,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1103,7 +1155,7 @@
            {
             "position": {
               "x": 10,
-              "y": 32,
+              "y": 37,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1158,7 +1210,7 @@
            {
             "position": {
               "x": 0,
-              "y": 37,
+              "y": 42,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1213,7 +1265,7 @@
            {
             "position": {
               "x": 10,
-              "y": 37,
+              "y": 42,
               "colSpan": 10,
               "rowSpan": 5
             },
