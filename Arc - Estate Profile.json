@@ -601,7 +601,7 @@
             "position": {
               "x": 0,
               "y": 6,
-              "colSpan": 20,
+              "colSpan": 10,
               "rowSpan": 6
             },
             "metadata": {
@@ -652,9 +652,9 @@
           },
            {
             "position": {
-              "x": 0,
-              "y": 12,
-              "colSpan": 20,
+              "x": 10,
+              "y": 6,
+              "colSpan": 10,
               "rowSpan": 6
             },
             "metadata": {
@@ -706,8 +706,8 @@
            {
             "position": {
               "x": 0,
-              "y": 18,
-              "colSpan": 7,
+              "y": 12,
+              "colSpan": 6,
               "rowSpan": 6
             },
             "metadata": {
@@ -758,9 +758,9 @@
           },
            {
             "position": {
-              "x": 7,
-              "y": 18,
-              "colSpan": 7,
+              "x": 6,
+              "y": 12,
+              "colSpan": 6,
               "rowSpan": 6
             },
             "metadata": {
@@ -813,9 +813,9 @@
           },
            {
             "position": {
-              "x": 14,
-              "y": 18,
-              "colSpan": 7,
+              "x": 12,
+              "y": 12,
+              "colSpan": 8,
               "rowSpan": 6
             },
             "metadata": {
@@ -867,8 +867,8 @@
            {
             "position": {
               "x": 0,
-              "y": 24,
-              "colSpan": 13,
+              "y": 18,
+              "colSpan": 10,
               "rowSpan": 6
             },
             "metadata": {
@@ -918,8 +918,8 @@
           },
            {
             "position": {
-              "x": 13,
-              "y": 24,
+              "x": 10,
+              "y": 18,
               "colSpan": 3,
               "rowSpan": 3
             },
@@ -970,11 +970,63 @@
               }
             }
           },
+          {
+            "position": {
+              "x": 10,
+              "y": 21,
+              "colSpan": 3,
+              "rowSpan": 3
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "chartType",
+                  "isOptional": true
+                },
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "resources\n| where type == \"microsoft.hybridcompute/machines\"\n| where properties.osName == \"windows\"\n| extend Cores = toint(properties.detectedProperties.logicalCoreCount)\n| extend Application = tostring(tags.Division)\n| extend Location = tostring(tags.Type)\n| extend TotalPhysicalMemory =  toint(properties.detectedProperties.totalPhysicalMemoryInGigabytes)\n| extend osSku = tostring(properties.osSku)\n| extend os_Name = properties.osname \n| extend osType = properties.osType\n| extend osVersion = tostring(properties.osVersion)\n| extend ESU = properties.licenseProfile.esuProfile.licenseAssignmentState\n| project Name=name, ESU, Application, Location, os_Name, osType, Cores, TotalPhysicalMemory, osVersion, osSku\n| distinct osVersion\n| summarize DistinctVersionCount = count() ",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
+              "settings": {},
+              "partHeader": {
+                "title": "Distinct Windows OS Versions",
+                "subtitle": "Count of distinct Windows OS versions deployed"
+              }
+            }
+          },
            {
             "position": {
-              "x": 16,
-              "y": 24,
-              "colSpan": 8,
+              "x": 13,
+              "y": 18,
+              "colSpan": 7,
               "rowSpan": 6
             },
             "metadata": {
@@ -1024,61 +1076,9 @@
           },
            {
             "position": {
-              "x": 13,
-              "y": 27,
-              "colSpan": 3,
-              "rowSpan": 3
-            },
-            "metadata": {
-              "inputs": [
-                {
-                  "name": "chartType",
-                  "isOptional": true
-                },
-                {
-                  "name": "isShared",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryId",
-                  "isOptional": true
-                },
-                {
-                  "name": "formatResults",
-                  "isOptional": true
-                },
-                {
-                  "name": "partTitle",
-                  "value": "Query 1",
-                  "isOptional": true
-                },
-                {
-                  "name": "queryScope",
-                  "value": {
-                    "scope": 0,
-                    "values": []
-                  },
-                  "isOptional": true
-                },
-                {
-                  "name": "query",
-                  "value": "resources\n| where type == \"microsoft.hybridcompute/machines\"\n| where properties.osName == \"windows\"\n| extend Cores = toint(properties.detectedProperties.logicalCoreCount)\n| extend Application = tostring(tags.Division)\n| extend Location = tostring(tags.Type)\n| extend TotalPhysicalMemory =  toint(properties.detectedProperties.totalPhysicalMemoryInGigabytes)\n| extend osSku = tostring(properties.osSku)\n| extend os_Name = properties.osname \n| extend osType = properties.osType\n| extend osVersion = tostring(properties.osVersion)\n| extend ESU = properties.licenseProfile.esuProfile.licenseAssignmentState\n| project Name=name, ESU, Application, Location, os_Name, osType, Cores, TotalPhysicalMemory, osVersion, osSku\n| distinct osVersion\n| summarize DistinctVersionCount = count() ",
-                  "isOptional": true
-                }
-              ],
-              "type": "Extension/HubsExtension/PartType/ArgQuerySingleValueTile",
-              "settings": {},
-              "partHeader": {
-                "title": "Distinct WIndows OS Versions",
-                "subtitle": "Count of distinct Windows OS versions deployed"
-              }
-            }
-          },
-           {
-            "position": {
               "x": 0,
-              "y": 30,
-              "colSpan": 24,
+              "y": 24,
+              "colSpan": 20,
               "rowSpan": 5
             },
             "metadata": {
@@ -1130,8 +1130,8 @@
            {
             "position": {
               "x": 0,
-              "y": 35,
-              "colSpan": 24,
+              "y": 29,
+              "colSpan": 20,
               "rowSpan": 5
             },
             "metadata": {
@@ -1183,8 +1183,8 @@
            {
             "position": {
               "x": 0,
-              "y": 40,
-              "colSpan": 24,
+              "y": 34,
+              "colSpan": 20,
               "rowSpan": 1
             },
             "metadata": {
@@ -1204,8 +1204,8 @@
            {
             "position": {
               "x": 0,
-              "y": 41,
-              "colSpan": 24,
+              "y": 35,
+              "colSpan": 20,
               "rowSpan": 6
             },
             "metadata": {
@@ -1257,8 +1257,8 @@
            {
             "position": {
               "x": 0,
-              "y": 47,
-              "colSpan": 24,
+              "y": 41,
+              "colSpan": 20,
               "rowSpan": 6
             },
             "metadata": {
@@ -1310,8 +1310,8 @@
            {
             "position": {
               "x": 0,
-              "y": 53,
-              "colSpan": 25,
+              "y": 47,
+              "colSpan": 20,
               "rowSpan": 7
             },
             "metadata": {
@@ -1363,8 +1363,8 @@
            {
             "position": {
               "x": 0,
-              "y": 60,
-              "colSpan": 13,
+              "y": 54,
+              "colSpan": 10,
               "rowSpan": 6
             },
             "metadata": {
@@ -1415,9 +1415,9 @@
           },
            {
             "position": {
-              "x": 13,
-              "y": 60,
-              "colSpan": 12,
+              "x": 10,
+              "y": 54,
+              "colSpan": 10,
               "rowSpan": 6
             },
             "metadata": {
@@ -1469,8 +1469,8 @@
            {
             "position": {
               "x": 0,
-              "y": 66,
-              "colSpan": 25,
+              "y": 60,
+              "colSpan": 20,
               "rowSpan": 6
             },
             "metadata": {
@@ -1522,8 +1522,8 @@
            {
             "position": {
               "x": 0,
-              "y": 72,
-              "colSpan": 25,
+              "y": 66,
+              "colSpan": 20,
               "rowSpan": 6
             },
             "metadata": {
@@ -1575,8 +1575,8 @@
            {
             "position": {
               "x": 0,
-              "y": 78,
-              "colSpan": 25,
+              "y": 72,
+              "colSpan": 20,
               "rowSpan": 6
             },
             "metadata": {
