@@ -694,6 +694,112 @@
                 },
                 {
                   "name": "query",
+                  "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSIS\"\n| extend version = tostring(properties[\"version\"])\n| summarize Count = count() by version\n| order by version asc",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SQL Integration Services Versions",
+                "subtitle": "Count of SQL Integration Services instances by version"
+              }
+            }
+          },
+          {
+            "position": {
+               "x": 10,
+              "y": 21,
+              "colSpan": 10,
+              "rowSpan": 5
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 2",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
+                  "value": "// If distinct count is small (e.g. < 1000)\n// run next query to get count of each value\nresources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSIS\"\n| summarize Count = count() by tostring(properties[\"edition\"])\n| order by Count desc",
+                  "isOptional": true
+                }
+              ],
+              "type": "Extension/HubsExtension/PartType/ArgQueryChartTile",
+              "settings": {},
+              "partHeader": {
+                "title": "SQL Integration Services Edition",
+                "subtitle": "Count of SQL Integration Services instances per edition"
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 0,
+              "y": 26,
+              "colSpan": 10,
+              "rowSpan": 5
+            },
+            "metadata": {
+              "inputs": [
+                {
+                  "name": "isShared",
+                  "isOptional": true
+                },
+                {
+                  "name": "queryId",
+                  "isOptional": true
+                },
+                {
+                  "name": "formatResults",
+                  "isOptional": true
+                },
+                {
+                  "name": "partTitle",
+                  "value": "Query 1",
+                  "isOptional": true
+                },
+                {
+                  "name": "chartType",
+                  "value": 1,
+                  "isOptional": true
+                },
+                {
+                  "name": "queryScope",
+                  "value": {
+                    "scope": 0,
+                    "values": []
+                  },
+                  "isOptional": true
+                },
+                {
+                  "name": "query",
                   "value": "resources\n| where type == \"microsoft.azurearcdata/sqlserverinstances\" and properties.serviceType == \"SSRS\"\n| extend version = tostring(properties[\"version\"])\n| summarize Count = count() by version\n| order by version asc",
                   "isOptional": true
                 }
@@ -709,7 +815,7 @@
           {
             "position": {
               "x": 10,
-              "y": 21,
+              "y": 26,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -762,7 +868,7 @@
            {
             "position": {
               "x": 0,
-              "y": 26,
+              "y": 31,
               "colSpan": 8,
               "rowSpan": 5
             },
@@ -815,7 +921,7 @@
           {
             "position": {
               "x": 8,
-              "y": 26,
+              "y": 31,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -868,7 +974,7 @@
            {
             "position": {
               "x": 14,
-              "y": 26,
+              "y": 31,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -922,7 +1028,7 @@
            {
             "position": {
               "x": 0,
-              "y": 31,
+              "y": 36,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -975,7 +1081,7 @@
            {
             "position": {
               "x": 6,
-              "y": 31,
+              "y": 36,
               "colSpan": 6,
               "rowSpan": 5
             },
@@ -1028,7 +1134,7 @@
            {
             "position": {
               "x": 12,
-              "y": 31,
+              "y": 36,
               "colSpan": 8,
               "rowSpan": 5
             },
@@ -1081,7 +1187,7 @@
            {
             "position": {
               "x": 0,
-              "y": 36,
+              "y": 41,
               "colSpan": 20,
               "rowSpan": 1
             },
@@ -1102,7 +1208,7 @@
            {
             "position": {
               "x": 0,
-              "y": 37,
+              "y": 42,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1155,7 +1261,7 @@
            {
             "position": {
               "x": 10,
-              "y": 37,
+              "y": 42,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1210,7 +1316,7 @@
            {
             "position": {
               "x": 0,
-              "y": 42,
+              "y": 47,
               "colSpan": 10,
               "rowSpan": 5
             },
@@ -1265,7 +1371,7 @@
            {
             "position": {
               "x": 10,
-              "y": 42,
+              "y": 47,
               "colSpan": 10,
               "rowSpan": 5
             },
