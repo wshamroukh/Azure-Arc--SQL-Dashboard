@@ -377,7 +377,7 @@
                 },
                 {
                   "name": "query",
-                  "value": "resources | where type =~ \"microsoft.azurearcdata/sqlserverinstances\" | where properties.serviceType =~ \"Engine\" | project SqlServerName = name, SQLEdition = tostring(properties.edition), CPUCores = toint(properties.vCore) | order by CPUCores desc",
+                  "value": "resources | where type =~ \"microsoft.azurearcdata/sqlserverinstances\" | where properties.serviceType =~ \"Engine\" | project SqlServerName = name, SQLEdition = tostring(properties.edition), LicenseType = tostring(properties.licenseType), CPUCores = toint(properties.vCore) | order by CPUCores desc",
                   "isOptional": true
                 }
               ],
